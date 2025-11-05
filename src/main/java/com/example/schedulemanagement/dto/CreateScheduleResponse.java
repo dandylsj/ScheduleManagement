@@ -3,20 +3,22 @@ package com.example.schedulemanagement.dto;
 
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
 public class CreateScheduleResponse { //생성 기능시 클라이언트에게 보낼 필드 값들
 
     //속성 Field
-    private Long id;
-    private String title;
-    private String content;
-    private String createAt;
-    private String updateAt;
-    private String userName;
+    private Long id; //아이디 값
+    private String title; //제목 값
+    private String content; //내용 값
+    private LocalDateTime createAt; //작성일자 값
+    private LocalDateTime updateAt; //수정일자 값
+    private String userName; //작성자명 값
 
 
     //생성자 Constructor
-    public CreateScheduleResponse(Long id, String title, String content, String createAt, String updateAt, String userName) {
+    public CreateScheduleResponse(Long id, String title, String content, LocalDateTime createAt, LocalDateTime updateAt, String userName) {
         this.id = id;
         this.title = title;
         this.content = content;

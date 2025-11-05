@@ -1,17 +1,19 @@
 package com.example.schedulemanagement.controller;
 
-import com.example.schedulemanagement.dto.CreateScheduleRequest;
-import com.example.schedulemanagement.dto.CreateScheduleResponse;
-import com.example.schedulemanagement.dto.GetOneScheduleResponse;
+import com.example.schedulemanagement.dto.*;
+import com.example.schedulemanagement.entity.Schedule;
 import com.example.schedulemanagement.service.ScheduleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/schedules") // URL 경로
 @RequiredArgsConstructor //final 이 붙은 생성자 자동생성
+
 public class ScheduleController {
     //속성 Field
     private final ScheduleService scheduleService;
@@ -27,10 +29,33 @@ public class ScheduleController {
         // body(result) - 서비스에서 응답받은 결과를 다시 JSON 형태로 변환하여 클라이언트에 전송
         // status(HttpStatus.CREATED) -생성 되었다는것을 CREATED 로 알려줌
     }
+
     //일정 조회 컨트롤러
-    @GetMapping("/{id}")   //호출 경로 매핑 id 값을 넣어서  불러옴
-    public ResponseEntity<GetOneScheduleResponse> getOne(@PathVariable Long id) {
-        GetOneScheduleResponse result = scheduleService.getOne(id);
+    @GetMapping("/{userName}")   //호출 경로 매핑 id 값을 넣어서  불러옴
+    public ResponseEntity<GetOneScheduleResponse> getOne(@PathVariable String userName) {
+        GetOneScheduleResponse result = scheduleService.getOne(userName);
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
+
+    //다건 조회 컨트롤러
+    @GetMapping("/list")
+    public ResponseEntity<List<GetOneScheduleResponse>> getAllUser(){
+        List<GetOneScheduleResponse> results = scheduleService.getAll();
+        return ResponseEntity.ok(results);
+    }
+    //일정 수정 컨트롤러
+    @PutMapping("/update/{id}")
+    public ResponseEntity<UpdateScheduleResponse> update(@PathVariable Long id, @RequestBody UpdateScheduleRequest request) {
+        UpdateScheduleResponse result = scheduleService.update(id, request);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
+
+    //일정 삭제 컨트롤러
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id, @RequestBody DeleteScheduleRequest request) {
+        scheduleService.delete(id, request);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+
 }
