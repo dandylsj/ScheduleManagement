@@ -35,6 +35,10 @@ POST 요청에 대한 데이터의 흐름을 간략하게 작성해 봤습니다
 <img width="3823" height="1968" alt="image" src="https://github.com/user-attachments/assets/9766ee71-0755-47d5-add0-cefd0d13f4ea" />
 
 
+## ERD 
+<img width="1041" height="233" alt="image" src="https://github.com/user-attachments/assets/c4666766-103d-4382-97c1-9f31e63a8393" />
+
+
 ## API 명세서
 
 아래 사진과 같이 사이드 보기로들어가면 자세히 볼 수 있습니다.
