@@ -16,6 +16,10 @@ JPA 를 사용하면 Repository에서 기본적인 기능들을 알아서 수행
 ## 기술 스택
 
 **Language**: Java Corretto 17 
+**Framwork**: SpringBoot
+**Database** : MYSQL
+**Build**:Gradle
+**ORM**: Spring Data JPA
 **IDE**: IntelliJ IDEA 
 
 <br>
@@ -30,23 +34,13 @@ JPA 를 사용하면 Repository에서 기본적인 기능들을 알아서 수행
 
 ## 와이어 프레임
 
-<img width="1452" height="1361" alt="image" src="https://github.com/user-attachments/assets/7259e741-3b09-43e5-9710-7912aa3eee58" />
+POST 요청에 대한 데이터의 흐름을 간략하게 작성해 봤습니다.
+<img width="3823" height="1968" alt="image" src="https://github.com/user-attachments/assets/9766ee71-0755-47d5-add0-cefd0d13f4ea" />
 
-
-
-
-## 실행 화면
-
-![키오스크 작동 화면](https://github.com/user-attachments/assets/bda6d07b-8226-4f6b-9b72-20ff2eed2e86)
-
-
-##  주요 기능
-
-실제 매장의 키오스크 작동방식에 따라 상위메뉴(ex 음료류) 를 누르면 하위메뉴(ex 아메리카노,에이드,티) 가 나오도록 만들었고
-하위메뉴의 메뉴 번호를 누르면 선택한 메뉴가 어떤것인지 나오도록 만들었습니다.
-<br>
 
 ## API 명세서
+
+아래 사진과 같이 사이드 보기로들어가면 자세히 볼 수 있습니다.
 
 [API 명세서 보러가기]https://www.notion.so/2a24d058410381cc94b7f03cd03dd60d?v=2a24d058410381fe9420000c2f60ac76
 
@@ -54,6 +48,10 @@ JPA 를 사용하면 Repository에서 기본적인 기능들을 알아서 수행
 
 <img width="1297" height="1870" alt="image" src="https://github.com/user-attachments/assets/bdddf4b3-f2ba-4fb0-8e9a-4d393551968d" />
 
-사이드 보기로들어가면 자세히 볼 수 있습니다.
+<br>
+
+
+
+
 
 [키오스크 프로젝트 트러블슈팅 보러가기](https://velog.io/write?id=1c049713-a0cf-4c6e-9050-9c297f8725ef))
