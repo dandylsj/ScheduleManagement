@@ -13,10 +13,15 @@ JPA 를 사용하면 Repository에서 기본적인 기능들을 알아서 수행
 ## 기술 스택
 
 **Language**: Java Corretto 17 
+
 **Framwork**: SpringBoot
+
 **Database** : MYSQL
+
 **Build**:Gradle
+
 **ORM**: Spring Data JPA
+
 **IDE**: IntelliJ IDEA 
 
 <br>
