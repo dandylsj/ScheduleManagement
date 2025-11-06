@@ -90,6 +90,9 @@ public class ScheduleService {
         Schedule schedule = scheduleRepository.findById(id).orElseThrow( //레포지토리의 아이디를 찾아보고 아이디 값이 있으면 넘어가고
                 () -> new IllegalStateException("없는 유저입니다.")//없으면 orElseThrow - 예외를 발생시킨다.
         );
+        if (!schedule.getPassword().equals(request.getPassword())) { //리퀘스트 받은 바디의 비밀번호 값이 , 엔티티의 비밀번호 값과 일치하는지 확인한다. ! 일치하지 않으면
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+        }
         schedule.update(  //수정할 제목과 내용
                 request.getTitle(),
                 request.getContent()
@@ -110,8 +113,8 @@ public class ScheduleService {
         );
         // 2. 비밀번호 일치 여부 확인
         //System.out.println(schedule.getPassword());  비밀번호가 어떻게 넘어갔는지 확인용 출력
-        if (!schedule.getPassword().equals(request.getPassword())) { //리퀘스트 받은 바디의 비밀번호 값이 , 엔티티의 비밀번호 값과 일치하는지 확인한다.
-            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다."); //일치하지 않으면 예외를 발생시킨다.
+        if (!schedule.getPassword().equals(request.getPassword())) { //리퀘스트 받은 바디의 비밀번호 값이 , 엔티티의 비밀번호 값과 일치하는지 확인한다. ! 일치하지 않으면
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다."); //예외를 발생시킨다.
         }
         // 3. 일정 삭제
         scheduleRepository.deleteById(id); //레포지토리의 일치하는 아이디 값의 일정을 삭제한다.
